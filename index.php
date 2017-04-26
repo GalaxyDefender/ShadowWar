@@ -57,7 +57,6 @@ $result = mysqli_query($conn, $query);
                         .$row["losses"]."</td><td>"
                         .$row["caches"]."</td></tr>";
                 }
-                    echo "</table>";
 
                 } else {
                     echo "No results!";
@@ -65,45 +64,10 @@ $result = mysqli_query($conn, $query);
 
                mysqli_close($conn);
             ?>
-
-
-
-        <form action="<?php echo htmlspecialchars( $_SERVER['PHP_SELF'] ); ?>" method="post">
-        <?php
-            echo "<select name='firstPlayers' class='form-control'>";
-            echo "<option value=''>Select Player 1</option>";
-                foreach($players as $player){
-                    echo "<option>".$player[1]."</option>";
-                }
-            echo "</select><br>";
-        ?>
-            <input type="radio" name="result" value="W">Win <br>
-            <input type="radio" name="result" value="D">Draw <br>
-            <input type="radio" name="result" value="L">Lost <br>
-
-            <label for="promethium">Promethium Scored</label> <br>
-            <input type="number" name="cach">
+        </table>
+        <form action="insert.php">
+            <button type="submit">Enter Results</button>
         </form>
-
-        <br>
-
-
-        <form action="<?php echo htmlspecialchars( $_SERVER['PHP_SELF'] ); ?>" method="post">
-        <?php
-            echo "<select name='secondPlayers' class='form-control'>";
-            echo "<option value=''>Select Player 2</option>";
-                foreach($players as $player){
-                    echo "<option>".$player[1]."</option>";
-                }
-            echo "</select><br>";
-        ?>
-            <input type="submit" name="addResult" value="Submit">
-        </form>
-
-        <?php
-
-            echo "<p>".$players[1][1]."</p>" ;
-        ?>
 
     </div>
 
